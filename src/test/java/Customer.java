@@ -63,11 +63,6 @@ public class Customer {
     public void CreateCustomer() throws IOException {
         properties.load(file);
         RestAssured.baseURI = properties.getProperty("baseUrl");
-//        JSONObject jsonObj = new JSONObject(IOUtils.toString(new URL("https://randomuser.me/api/"), Charset.forName("UTF-8")));
-//        String name = (String) jsonObj.get("name.first" + " " + "name.last");
-//        String email = (String) jsonObj.get("email");
-//        String address = (String) jsonObj.get("location.street.name");
-//        String phone_number = (String) jsonObj.get("phone");
         Response res = given()
                 .contentType("application/json").header("Authorization", properties.getProperty("token"))
                 .body("{\n" +
